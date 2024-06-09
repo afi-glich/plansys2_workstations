@@ -1,0 +1,25 @@
+set instance leia robot
+set instance central_warehouse location
+set instance room1 location
+set instance valve1 valve
+set instance box1 box
+set instance workstation1 workstation
+set instance carrier1 carrier
+
+set predicate (connected central_warehouse room1)
+set predicate (connected room1 central_warehouse)
+
+set predicate (at leia central_warehouse)
+set predicate (free leia)
+set predicate (has-carrier carrier1 leia)
+set predicate (= (capacity carrier1) 2)
+set predicate (= (carrier-load carrier1) 0)
+
+set predicate (at box1 central_warehouse)
+set predicate (empty box1)
+
+set predicate (at workstation1 room1)
+
+set predicate (at valve1 central_warehouse)
+
+set goal (and(has-workstation valve1 workstation))
