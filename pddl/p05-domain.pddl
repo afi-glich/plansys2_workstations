@@ -25,12 +25,12 @@
     (at ?obj - locatable ?l - location)  ; locatable e is at location l
     (filled ?b - box ?c - content)  ; content c is in box b
     (empty ?b - box)  ; box b is empty
-    (has-workstation ?c - content ?w - workstation)  ; content c is at workstation w
+    (has_workstation ?c - content ?w - workstation)  ; content c is at workstation w
     (connected ?l1 ?l2 - location)    ; location l1 is connected to location l2
     (has-valve ?w - workstation)    ; workstation w has a valve
     (has-bolt ?w - workstation)    ; workstation w has a bolt
     (has-tool ?w - workstation)    ; workstation w has a tool
-    (has-carrier ?k - carrier ?r - robot)    ; carrier k is with robot r
+    (has_carrier ?k - carrier ?r - robot)    ; carrier k is with robot r
     (on ?b - box ?c - carrier)    ; box b is on carrier c
 )
 
@@ -45,7 +45,7 @@
         ))
         (over all (and 
             (at ?r ?l)
-            (has-carrier ?k ?r)
+            (has_carrier ?k ?r)
         ))
     )
     :effect (and 
@@ -121,7 +121,7 @@
         ))
         (over all (and 
             (at ?r ?l)
-            (has-carrier ?k ?r)
+            (has_carrier ?k ?r)
         ))
     )
     :effect (and 
@@ -156,7 +156,7 @@
             (not (filled ?b ?c))
         ))
         (at end (and 
-            (has-workstation ?c ?w)
+            (has_workstation ?c ?w)
             (free ?r)
             (empty ?b)
         ))
@@ -168,7 +168,7 @@
     :duration (= ?duration 1)
     :condition (and 
         (over all (and 
-            (has-workstation ?v ?w)
+            (has_workstation ?v ?w)
         ))
 
     )
@@ -184,7 +184,7 @@
     :duration (= ?duration 1)
     :condition (and
         (over all (and 
-            (has-workstation ?b ?w)
+            (has_workstation ?b ?w)
         ))
     )
     :effect (and 
@@ -199,7 +199,7 @@
     :duration (= ?duration 1)
     :condition (and
         (over all (and 
-            (has-workstation ?t ?w)
+            (has_workstation ?t ?w)
         ))
     )
     :effect (and 
