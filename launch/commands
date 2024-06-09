@@ -12,8 +12,6 @@ set predicate (connected room1 central_warehouse)
 set predicate (at leia central_warehouse)
 set predicate (free leia)
 set predicate (has-carrier carrier1 leia)
-set predicate (= (capacity carrier1) 2)
-set predicate (= (carrier-load carrier1) 0)
 
 set predicate (at box1 central_warehouse)
 set predicate (empty box1)

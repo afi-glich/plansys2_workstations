@@ -1,10 +1,9 @@
-(define (domain p04-domain)
+(define (domain p05-domain)
 
 ;remove requirements that are not needed
 (:requirements 
     :strips 
     :typing
-    :numeric-fluents 
     :durative-actions
 )
 
@@ -35,13 +34,6 @@
     (on ?b - box ?c - carrier)    ; box b is on carrier c
 )
 
-
-(:functions 
-    (capacity ?k - carrier)  ; total capacity of carrier k
-    (carrier-load ?k - carrier)  ; number of boxes carrier k is holding
-    (distance ?l1 ?l2 - location)  ; distance between location l1 and l2 
-)
-
 ;define actions here
 (:durative-action load-box-on-carrier
     :parameters (?r - robot ?b - box ?l - location ?k - carrier)
@@ -53,8 +45,7 @@
         ))
         (over all (and 
             (at ?r ?l)
-            (has-carrier ?k ?r)  
-            (<= (carrier-load ?k) (capacity ?k))
+            (has-carrier ?k ?r)
         ))
     )
     :effect (and 
@@ -64,7 +55,6 @@
         ))
         (at end (and 
             (on ?b ?k)
-            (increase (capacity ?k) 1)
             (free ?r)
         ))
     )
@@ -139,8 +129,7 @@
             (not (free ?r))
             (not (on ?b ?k))
         ))
-        (at end (and 
-            (decrease (capacity ?k) 1)
+        (at end (and
             (at ?b ?l)
             (free ?r)
         ))
