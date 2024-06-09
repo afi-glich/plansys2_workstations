@@ -3,6 +3,7 @@ set instance central_warehouse location
 set instance room1 location
 set instance c1 carrier
 set instance b1 box
+set instance v1 content
 
 set predicate (connected central_warehouse room1)
 set predicate (connected room1 central_warehouse)
@@ -14,4 +15,6 @@ set predicate (has_carrier c1 leia)
 set predicate (at b1 central_warehouse)
 set predicate (empty b1)
 
-set goal (and(on b1 c1))
+set predicate (at v1 central_warehouse)
+
+set goal (and(filled b1 c1))
