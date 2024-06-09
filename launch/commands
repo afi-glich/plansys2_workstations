@@ -10,7 +10,7 @@ set predicate (connected room1 central_warehouse)
 set predicate (at leia central_warehouse)
 set predicate (free leia)
 
-set predicate (has_carrier carrier1 leia)
+set predicate (has_carrier c1 leia)
 set predicate (at b1 central_warehouse)
 set predicate (empty b1)
 

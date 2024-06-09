@@ -35,7 +35,7 @@
 )
 
 ;define actions here
-(:durative-action load-box-on-carrier
+(:durative-action loadbox
     :parameters (?r - robot ?b - box ?l - location ?k - carrier)
     :duration (= ?duration 3)
     :condition (and 
@@ -60,7 +60,7 @@
     )
 )
 
-(:durative-action fill-box
+(:durative-action fillbox
     :parameters (?r - robot ?b - box ?c - content ?l - location)
     :duration (= ?duration 3)
     :condition (and 
@@ -111,7 +111,7 @@
     )
 )
 
-(:durative-action unload-box-from-carrier
+(:durative-action unloadbox
     :parameters (?r - robot ?b - box ?k - carrier ?l - location)
     :duration (= ?duration 3)
     :condition (and 
@@ -136,7 +136,7 @@
     )
 )
 
-(:durative-action give-content-workstation
+(:durative-action giveworkstation
     :parameters (?r - robot ?b - box ?c - content ?l - location ?w - workstation)
     :duration (= ?duration 4)
     :condition (and 

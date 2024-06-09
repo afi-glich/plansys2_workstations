@@ -12,7 +12,7 @@ class GiveContentWorkstationAction : public plansys2::ActionExecutorClient
 {
 public:
   GiveContentWorkstationAction()
-  : plansys2::ActionExecutorClient("give_content_workstation", 200ms)
+  : plansys2::ActionExecutorClient("giveworkstation", 200ms)
   {
     progress_ = 0.0;
   }
@@ -43,7 +43,7 @@ int main(int argc, char ** argv)
     rclcpp::init(argc, argv);
     auto node = std::make_shared<GiveContentWorkstationAction>();
 
-    node->set_parameter(rclcpp::Parameter("action_name", "give_content_workstation"));
+    node->set_parameter(rclcpp::Parameter("action_name", "giveworkstation"));
     node->trigger_transition(lifecycle_msgs::msg::Transition::TRANSITION_CONFIGURE);
 
     rclcpp::spin(node->get_node_base_interface());

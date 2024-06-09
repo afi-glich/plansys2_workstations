@@ -12,7 +12,7 @@ class LoadBoxAction : public plansys2::ActionExecutorClient
 {
 public:
   LoadBoxAction()
-  : plansys2::ActionExecutorClient("load_box", 200ms)
+  : plansys2::ActionExecutorClient("loadbox", 300ms)
   {
     progress_ = 0.0;
   }
@@ -43,7 +43,7 @@ int main(int argc, char ** argv)
     rclcpp::init(argc, argv);
     auto node = std::make_shared<LoadBoxAction>();
 
-    node->set_parameter(rclcpp::Parameter("action_name", "load_box"));
+    node->set_parameter(rclcpp::Parameter("action_name", "loadbox"));
     node->trigger_transition(lifecycle_msgs::msg::Transition::TRANSITION_CONFIGURE);
 
     rclcpp::spin(node->get_node_base_interface());
