@@ -1,7 +1,7 @@
 set instance leia robot
 set instance central_warehouse location
 set instance room1 location
-set instance valve1 valve
+set instance v1 valve
 set instance box1 box
 set instance workstation1 workstation
 set instance carrier1 carrier
@@ -18,6 +18,6 @@ set predicate (empty box1)
 
 set predicate (at workstation1 room1)
 
-set predicate (at valve1 central_warehouse)
+set predicate (at v1 central_warehouse)
 
 set goal (and(has-workstation valve1 workstation))
