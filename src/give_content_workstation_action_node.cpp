@@ -12,7 +12,7 @@ class GiveContentWorkstationAction : public plansys2::ActionExecutorClient
 {
 public:
   GiveContentWorkstationAction()
-  : plansys2::ActionExecutorClient("giveworkstation", 200ms)
+  : plansys2::ActionExecutorClient("giveworkstation", 400ms)
   {
     progress_ = 0.0;
   }
