@@ -51,39 +51,6 @@ def generate_launch_description():
         namespace=namespace,
         output='screen',
         parameters=[])
-
-    load_box_cmd = Node(
-        package='plansys2_workstations',
-        executable='load_box_action_node',
-        name='load_box_action_node',
-        namespace=namespace,
-        output='screen',
-        parameters=[])
-    
-    unload_box_cmd = Node(
-        package='plansys2_workstations',
-        executable='unload_box_action_node',
-        name='unload_box_action_node',
-        namespace=namespace,
-        output='screen',
-        parameters=[])
-    
-    fill_box_cmd = Node(
-        package='plansys2_workstations',
-        executable='fill_box_action_node',
-        name='fill_box_action_node',
-        namespace=namespace,
-        output='screen',
-        parameters=[])
-    
-    give_content_workstation_cmd = Node(
-        package='plansys2_workstations',
-        executable='give_content_workstation_action_node',
-        name='give_content_workstation_action_node',
-        namespace=namespace,
-        output='screen',
-        parameters=[])
-    
     ld = LaunchDescription()
 
     ld.add_action(declare_namespace_cmd)
@@ -92,9 +59,5 @@ def generate_launch_description():
     ld.add_action(plansys2_cmd)
 
     ld.add_action(move_cmd)
-    ld.add_action(load_box_cmd)
-    ld.add_action(unload_box_cmd)
-    ld.add_action(fill_box_cmd)
-    ld.add_action(give_content_workstation_cmd)
 
     return ld
