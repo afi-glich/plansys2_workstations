@@ -15,12 +15,11 @@
 (:types 
     ; all the types described as locatable can be positionsed in a location
     valve - content
+    valve - locatable
     robot - locatable 
     box - locatable
     workstation - locatable
     carrier - locatable
-    content - locatable
-    locatable
     location
 )
 
