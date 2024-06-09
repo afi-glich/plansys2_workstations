@@ -17,4 +17,4 @@ set predicate (empty b1)
 
 set predicate (at v1 central_warehouse)
 
-set goal (and(filled b1 c1))
+set goal (and(filled b1 v1))
