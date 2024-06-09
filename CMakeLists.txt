@@ -18,6 +18,19 @@ set(dependencies
 add_executable(move_action_node src/move_action_node.cpp)
 ament_target_dependencies(move_action_node ${dependencies})
 
+add_executable(fill_box_action_node src/fill_box_action_node.cpp)
+ament_target_dependencies(fill_box_action_node ${dependencies})
+
+add_executable(load_box_action_node src/load_box_action_node.cpp)
+ament_target_dependencies(load_box_action_node ${dependencies})
+
+add_executable(unload_box_action_node src/unload_box_action_node.cpp)
+ament_target_dependencies(unload_box_action_node ${dependencies})
+
+add_executable(give_content_workstation_action_node src/give_content_workstation_action_node.cpp)
+ament_target_dependencies(give_content_workstation_action_node ${dependencies})
+
+
 install(DIRECTORY launch pddl DESTINATION share/${PROJECT_NAME})
 
 install(TARGETS
