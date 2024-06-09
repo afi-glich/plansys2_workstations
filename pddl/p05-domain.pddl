@@ -9,9 +9,6 @@
 
 (:types 
     ; all the types described as locatable can be positionsed in a location
-    valve - content
-    bolt  - content
-    tool - content ; can add more content types
     robot - locatable 
     box - locatable
     workstation - locatable
