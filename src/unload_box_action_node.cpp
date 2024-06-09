@@ -12,7 +12,7 @@ class UnloadBoxAction : public plansys2::ActionExecutorClient
 {
 public:
   UnloadBoxAction()
-  : plansys2::ActionExecutorClient("unloadbox", 300ms)
+  : plansys2::ActionExecutorClient("unloadbox", 200ms)
   {
     progress_ = 0.0;
   }

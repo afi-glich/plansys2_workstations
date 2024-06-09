@@ -1,20 +1,11 @@
 set instance leia robot
-set instance central_warehouse location
+set instance cw location
 set instance room1 location
-set instance c1 carrier
-set instance b1 box
-set instance v1 content
 
-set predicate (connected central_warehouse room1)
-set predicate (connected room1 central_warehouse)
+set predicate (connected cw room1)
+set predicate (connected room1 cw)
 
-set predicate (at leia central_warehouse)
+set predicate (at leia cw)
 set predicate (free leia)
-
-set predicate (has_carrier c1 leia)
-set predicate (at b1 central_warehouse)
-set predicate (empty b1)
-
-set predicate (at v1 central_warehouse)
 
 set goal (and(at leia room1))

@@ -12,7 +12,7 @@ class LoadBoxAction : public plansys2::ActionExecutorClient
 {
 public:
   LoadBoxAction()
-  : plansys2::ActionExecutorClient("loadbox", 300ms)
+  : plansys2::ActionExecutorClient("loadbox", 200ms)
   {
     progress_ = 0.0;
   }

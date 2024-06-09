@@ -12,7 +12,7 @@ class FillBoxAction : public plansys2::ActionExecutorClient
 {
 public:
   FillBoxAction()
-  : plansys2::ActionExecutorClient("fillbox", 300ms)
+  : plansys2::ActionExecutorClient("fillbox", 200ms)
   {
     progress_ = 0.0;
   }
