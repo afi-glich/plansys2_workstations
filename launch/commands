@@ -2,7 +2,7 @@ set instance leia robot
 set instance cw location
 set instance room1 location
 set instance c1 carrier
-set instance v1 content
+set instance v1 valve
 set instance b1 box
 set instance w1 workstation
 
@@ -12,9 +12,12 @@ set predicate (connected room1 cw)
 set predicate (at leia cw)
 set predicate (free leia)
 
+set predicate (has_carrier c1 leia)
+
 set predicate (at b1 cw)
 set predicate (empty b1)
 
 set predicate (at w1 room1)
+set predicate (at v1 cw)
 
 set goal (and(at leia room1))

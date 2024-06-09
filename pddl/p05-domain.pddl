@@ -30,7 +30,7 @@
     (at ?obj - locatable ?l - location)  ; locatable e is at location l
     (filled ?b - box ?c - content)  ; content c is in box b
     (empty ?b - box)  ; box b is empty
-(has_workstation ?c - content ?w - workstation)  ; content c is at workstation w
+    (has_workstation ?c - content ?w - workstation)  ; content c is at workstation w
     (connected ?l1 ?l2 - location)    ; location l1 is connected to location l2
     (has_carrier ?k - carrier ?r - robot)    ; carrier k is with robot r
     (on ?b - box ?c - carrier)    ; box b is on carrier c
