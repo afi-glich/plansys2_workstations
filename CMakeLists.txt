@@ -35,6 +35,10 @@ install(DIRECTORY launch pddl DESTINATION share/${PROJECT_NAME})
 
 install(TARGETS
   move_action_node
+  fill_box_action_node
+  load_box_action_node
+  unload_box_action_node
+  give_content_workstation_action_node
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION lib/${PROJECT_NAME}
