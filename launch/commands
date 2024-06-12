@@ -18,8 +18,8 @@ set predicate (free leia)
 
 set predicate (has_carrier c1 leia)
 
-set predicate (next-load load0 load1)
-set predicate (next-load load1 load2)
+set predicate (next_load load0 load1)
+set predicate (next_load load1 load2)
 
 set predicate (capacity c1 load1)
 

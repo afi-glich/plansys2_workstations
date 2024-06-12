@@ -33,7 +33,7 @@
     (has_carrier ?k - carrier ?r - robot)    ; carrier k is with robot r
     (on ?b - box ?c - carrier)    ; box b is on carrier 
     (capacity ?k - carrier ?n - capacity_value)    ; carrier k has a capacity of n
-    (next-load ?n1 ?n2 - capacity_value)    ; next load of carrier
+    (next_load ?n1 ?n2 - capacity_value)    ; next load of carrier
 )
 
 ;define actions here
@@ -45,7 +45,7 @@
             (free ?r) 
             (at ?b ?l)
             (capacity ?k ?n2)
-            (next-load ?n1 ?n2)
+            (next_load ?n1 ?n2)
         ))
         (over all (and 
             (at ?r ?l)
@@ -124,7 +124,7 @@
         (at start (and 
             (free ?r)
             (on ?b ?k)
-            (next-load ?n1 ?n2)
+            (next_load ?n1 ?n2)
             (capacity ?k ?n1)
         ))
         (over all (and 
