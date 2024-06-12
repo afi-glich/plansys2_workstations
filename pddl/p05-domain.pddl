@@ -188,7 +188,7 @@
             (not (filled ?b ?bo))
         ))
         (at end (and 
-            (has_bolt ?bo)
+            (has_bolt ?w)
             (has_workstation ?bo ?w)
             (free ?r)
             (empty ?b)
