@@ -12,7 +12,7 @@ class GiveContentWorkstationAction : public plansys2::ActionExecutorClient
 {
 public:
   GiveContentWorkstationAction()
-  : plansys2::ActionExecutorClient("giveboltworkstation", 200ms)
+  : plansys2::ActionExecutorClient("givecontentworkstation", 200ms)
   {
     progress_ = 0.0;
   }
@@ -22,16 +22,16 @@ private:
     {
         if (progress_ < 1.0) {
         progress_ += 0.02;
-        send_feedback(progress_, "GiveBoltWorkstation running");
+        send_feedback(progress_, "GiveContentWorkstation running");
         } else {
-        finish(true, 1.0, "GiveBoltWorkstation completed");
+        finish(true, 1.0, "GiveContentWorkstation completed");
     
         progress_ = 0.0;
         std::cout << std::endl;
         }
     
         std::cout << "\r\e[K" << std::flush;
-        std::cout << "Giving bolt to the workstation ... [" << std::min(100.0, progress_ * 100.0) << "%]  " <<
+        std::cout << "Giving content to the workstation ... [" << std::min(100.0, progress_ * 100.0) << "%]  " <<
         std::flush;
     }
     
@@ -43,7 +43,7 @@ int main(int argc, char ** argv)
     rclcpp::init(argc, argv);
     auto node = std::make_shared<GiveContentWorkstationAction>();
 
-    node->set_parameter(rclcpp::Parameter("action_name", "giveboltworkstation"));
+    node->set_parameter(rclcpp::Parameter("action_name", "givecontentworkstation"));
     node->trigger_transition(lifecycle_msgs::msg::Transition::TRANSITION_CONFIGURE);
 
     rclcpp::spin(node->get_node_base_interface());

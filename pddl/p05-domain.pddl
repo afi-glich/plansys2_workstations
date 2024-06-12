@@ -14,25 +14,20 @@
 
 (:types 
     ; all the types described as locatable can be positionsed in a location
-    valve - locatable
-    bolt - locatable
-    tool - locatable
     robot - locatable 
     box - locatable
     workstation - locatable
     carrier - locatable
+    content - locatable
     location
 )
 
 (:predicates 
     (free ?r - robot)   ; robot is free
     (at ?obj - locatable ?l - location)  ; locatable e is at location l
-    (filled ?b - box ?c - object)  ; content c is in box b
+    (filled ?b - box ?c - content)  ; content c is in box b
     (empty ?b - box)  ; box b is empty
-    (has_valve ?w - workstation)    ; workstation w has a valve
-    (has_bolt ?w - workstation)    ; workstation w has a bolt
-    (has_tool ?w - workstation)    ; workstation w has a tool
-    (has_workstation ?o - object ?w - workstation)    ; object o is at workstation w
+    (has_workstation ?c - content ?w - workstation)    ; object o is at workstation w
     (connected ?l1 ?l2 - location)    ; location l1 is connected to location l2
     (has_carrier ?k - carrier ?r - robot)    ; carrier k is with robot r
     (on ?b - box ?c - carrier)    ; box b is on carrier c
@@ -65,12 +60,12 @@
 )
 
 (:durative-action fillbox
-    :parameters (?r - robot ?b - box ?o - object ?l - location)
+    :parameters (?r - robot ?b - box ?c - content ?l - location)
     :duration (= ?duration 3)
     :condition (and 
         (at start (and
             (free ?r)
-            (at ?o ?l)
+            (at ?c ?l)
             (empty ?b)
         ))
         (over all (and 
@@ -81,10 +76,10 @@
     :effect (and 
         (at start (and 
             (not (free ?r))
-            (not (at ?o ?l))
+            (not (at ?c ?l))
         ))
         (at end (and
-            (filled ?b ?o)
+            (filled ?b ?c)
             (not (empty ?b))
             (free ?r) 
         ))
@@ -140,13 +135,13 @@
     )
 )
 
-(:durative-action givevalveworkstation
-    :parameters (?r - robot ?b - box ?v - valve ?l - location ?w - workstation)
+(:durative-action givecontentworkstation
+    :parameters (?r - robot ?b - box ?c - content ?l - location ?w - workstation)
     :duration (= ?duration 4)
     :condition (and 
         (at start (and 
             (free ?r)
-            (filled ?b ?v)
+            (filled ?b ?c)
         ))
         (over all (and 
             (at ?r ?l)
@@ -157,67 +152,10 @@
     :effect (and 
         (at start (and 
             (not (free ?r))
-            (not (filled ?b ?v))
+            (not (filled ?b ?c))
         ))
-        (at end (and 
-            (has_valve ?w)
-            (has_workstation ?v ?w)
-            (free ?r)
-            (empty ?b)
-        ))
-    )
-)
-
-(:durative-action giveboltworkstation
-    :parameters (?r - robot ?b - box ?bo - bolt ?l - location ?w - workstation)
-    :duration (= ?duration 4)
-    :condition (and 
-        (at start (and 
-            (free ?r)
-            (filled ?b ?bo)
-        ))
-        (over all (and 
-            (at ?r ?l)
-            (at ?w ?l)
-            (at ?b ?l)
-        ))
-    )
-    :effect (and 
-        (at start (and 
-            (not (free ?r))
-            (not (filled ?b ?bo))
-        ))
-        (at end (and 
-            (has_bolt ?w)
-            (has_workstation ?bo ?w)
-            (free ?r)
-            (empty ?b)
-        ))
-    )
-)
-
-(:durative-action givetoolworkstation
-    :parameters (?r - robot ?b - box ?t - tool ?l - location ?w - workstation)
-    :duration (= ?duration 4)
-    :condition (and 
-        (at start (and 
-            (free ?r)
-            (filled ?b ?t)
-        ))
-        (over all (and 
-            (at ?r ?l)
-            (at ?w ?l)
-            (at ?b ?l)
-        ))
-    )
-    :effect (and 
-        (at start (and 
-            (not (free ?r))
-            (not (filled ?b ?t))
-        ))
-        (at end (and 
-            (has_tool ?t)
-            (has_workstation ?t ?w)
+        (at end (and
+            (has_workstation ?c ?w)
             (free ?r)
             (empty ?b)
         ))
