@@ -65,12 +65,12 @@
 )
 
 (:durative-action fillbox
-    :parameters (?r - robot ?b - box ?c - content ?l - location)
+    :parameters (?r - robot ?b - box ?o - object ?l - location)
     :duration (= ?duration 3)
     :condition (and 
         (at start (and
             (free ?r)
-            (at ?c ?l)
+            (at ?o ?l)
             (empty ?b)
         ))
         (over all (and 
@@ -81,10 +81,10 @@
     :effect (and 
         (at start (and 
             (not (free ?r))
-            (not (at ?c ?l))
+            (not (at ?o ?l))
         ))
         (at end (and
-            (filled ?b ?c)
+            (filled ?b ?o)
             (not (empty ?b))
             (free ?r) 
         ))
