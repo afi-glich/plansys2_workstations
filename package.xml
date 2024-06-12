@@ -4,9 +4,9 @@
   <name>plansys2_workstations</name>
   <version>0.0.4</version>
 
-  <description>A simple example of ROS2 Planning System</description>
+  <description>Workstations supplier</description>
 
-  <maintainer email="fmrico@gmail.com">Afifa Saeed</maintainer>
+  <maintainer email="afifa.saeed@studenti.unitn.it">Afifa Saeed</maintainer>
 
   <license>Apache License, Version 2.0</license>
 

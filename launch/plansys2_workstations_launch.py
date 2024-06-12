@@ -77,10 +77,26 @@ def generate_launch_description():
         output='screen',
         parameters=[])
     
-    give_content_workstation_cmd = Node(
+    give_valve_workstation_cmd = Node(
         package='plansys2_workstations',
-        executable='give_content_workstation_action_node',
-        name='give_content_workstation_action_node',
+        executable='give_valve_workstation_action_node',
+        name='give_valve_workstation_action_node',
+        namespace=namespace,
+        output='screen',
+        parameters=[])
+    
+    give_bolt_workstation_cmd = Node(
+        package='plansys2_workstations',
+        executable='give_bolt_workstation_action_node',
+        name='give_bolt_workstation_action_node',
+        namespace=namespace,
+        output='screen',
+        parameters=[])
+    
+    give_tool_workstation_cmd = Node(
+        package='plansys2_workstations',
+        executable='give_tool_workstation_action_node',
+        name='give_tool_workstation_action_node',
         namespace=namespace,
         output='screen',
         parameters=[])
@@ -94,6 +110,8 @@ def generate_launch_description():
     ld.add_action(fill_box_cmd)
     ld.add_action(load_box_cmd)
     ld.add_action(unload_box_cmd)
-    ld.add_action(give_content_workstation_cmd)
+    ld.add_action(give_valve_workstation_cmd)
+    ld.add_action(give_bolt_workstation_cmd)
+    ld.add_action(give_tool_workstation_cmd)
 
     return ld

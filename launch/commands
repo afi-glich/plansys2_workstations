@@ -3,7 +3,10 @@ set instance cw location
 set instance room1 location
 set instance c1 carrier
 set instance v1 valve
+set instance bo1 bolt
+set instance t1 tool
 set instance b1 box
+set instance b2 box
 set instance w1 workstation
 
 set predicate (connected cw room1)
@@ -17,7 +20,12 @@ set predicate (has_carrier c1 leia)
 set predicate (at b1 cw)
 set predicate (empty b1)
 
+set predicate (at b2 cw)
+set predicate (empty b2)
+
 set predicate (at w1 room1)
 set predicate (at v1 cw)
+set predicate (at bo1 cw)
+set predicate (at t1 cw)
 
 set goal (and(at leia room1))

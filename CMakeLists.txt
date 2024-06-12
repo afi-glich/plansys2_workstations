@@ -27,8 +27,14 @@ ament_target_dependencies(load_box_action_node ${dependencies})
 add_executable(unload_box_action_node src/unload_box_action_node.cpp)
 ament_target_dependencies(unload_box_action_node ${dependencies})
 
-add_executable(give_content_workstation_action_node src/give_content_workstation_action_node.cpp)
-ament_target_dependencies(give_content_workstation_action_node ${dependencies})
+add_executable(give_valve_workstation_action_node src/give_valve_workstation_action_node.cpp)
+ament_target_dependencies(give_valve_workstation_action_node ${dependencies})
+
+add_executable(give_tool_workstation_action_node src/give_tool_workstation_action_node.cpp)
+ament_target_dependencies(give_tool_workstation_action_node ${dependencies})
+
+add_executable(give_bolt_workstation_action_node src/give_bolt_workstation_action_node.cpp)
+ament_target_dependencies(give_bolt_workstation_action_node ${dependencies})
 
 
 install(DIRECTORY launch pddl DESTINATION share/${PROJECT_NAME})
@@ -38,7 +44,9 @@ install(TARGETS
   fill_box_action_node
   load_box_action_node
   unload_box_action_node
-  give_content_workstation_action_node
+  give_valve_workstation_action_node
+  give_bolt_workstation_action_node
+  give_tool_workstation_action_node
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION lib/${PROJECT_NAME}
