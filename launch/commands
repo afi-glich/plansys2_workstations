@@ -5,7 +5,10 @@ set instance c1 carrier
 set instance v1 content
 set instance b1 box
 set instance b2 box
-set instance w1 workstation
+set instance w1 workstation 
+set instance load0 capacity_value
+set instance load1 capacity_value
+set instance load1 capacity_value
 
 set predicate (connected cw room1)
 set predicate (connected room1 cw)
@@ -14,6 +17,11 @@ set predicate (at leia cw)
 set predicate (free leia)
 
 set predicate (has_carrier c1 leia)
+
+set predicate (next-load load0 load1)
+set predicate (next-load load1 load2)
+
+set predicate (capacity c1 load1)
 
 set predicate (at b1 cw)
 set predicate (empty b1)

@@ -26,7 +26,7 @@ class MoveAction : public plansys2::ActionExecutorClient
 {
 public:
   MoveAction()
-  : plansys2::ActionExecutorClient("move", 200ms)
+  : plansys2::ActionExecutorClient("move", 400ms)
   {
     progress_ = 0.0;
   }

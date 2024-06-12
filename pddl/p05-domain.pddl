@@ -20,6 +20,7 @@
     carrier - locatable
     content - locatable
     location
+    capacity_value
 )
 
 (:predicates 
@@ -30,17 +31,21 @@
     (has_workstation ?c - content ?w - workstation)    ; object o is at workstation w
     (connected ?l1 ?l2 - location)    ; location l1 is connected to location l2
     (has_carrier ?k - carrier ?r - robot)    ; carrier k is with robot r
-    (on ?b - box ?c - carrier)    ; box b is on carrier c
+    (on ?b - box ?c - carrier)    ; box b is on carrier 
+    (capacity ?k - carrier ?n - capacity_value)    ; carrier k has a capacity of n
+    (next-load ?n1 ?n2 - capacity_value)    ; next load of carrier
 )
 
 ;define actions here
 (:durative-action loadbox
-    :parameters (?r - robot ?b - box ?l - location ?k - carrier)
+    :parameters (?r - robot ?b - box ?l - location ?k - carrier ?n2 ?n1 - capacity_value)
     :duration (= ?duration 3)
     :condition (and 
         (at start (and 
             (free ?r) 
             (at ?b ?l)
+            (capacity ?k ?n2)
+            (next-load ?n1 ?n2)
         ))
         (over all (and 
             (at ?r ?l)
@@ -55,6 +60,8 @@
         (at end (and 
             (on ?b ?k)
             (free ?r)
+            (not (capacity ?k ?n2))
+            (capacity ?k ?n1)
         ))
     )
 )
@@ -111,12 +118,14 @@
 )
 
 (:durative-action unloadbox
-    :parameters (?r - robot ?b - box ?k - carrier ?l - location)
+    :parameters (?r - robot ?b - box ?k - carrier ?l - location ?n1 ?n2 - capacity_value)
     :duration (= ?duration 3)
     :condition (and 
         (at start (and 
             (free ?r)
             (on ?b ?k)
+            (next-load ?n1 ?n2)
+            (capacity ?k ?n1)
         ))
         (over all (and 
             (at ?r ?l)
@@ -131,13 +140,15 @@
         (at end (and
             (at ?b ?l)
             (free ?r)
+            (not (capacity ?k ?n1))
+            (capacity ?k ?n2)
         ))
     )
 )
 
 (:durative-action givecontentworkstation
     :parameters (?r - robot ?b - box ?c - content ?l - location ?w - workstation)
-    :duration (= ?duration 4)
+    :duration (= ?duration 2)
     :condition (and 
         (at start (and 
             (free ?r)
