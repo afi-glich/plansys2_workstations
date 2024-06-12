@@ -27,7 +27,7 @@
 (:predicates 
     (free ?r - robot)   ; robot is free
     (at ?obj - locatable ?l - location)  ; locatable e is at location l
-    (filled ?b - box ?c - content)  ; content c is in box b
+    (filled ?b - box ?c - object)  ; content c is in box b
     (empty ?b - box)  ; box b is empty
     (has_valve ?w - workstation)    ; workstation w has a valve
     (has_bolt ?w - workstation)    ; workstation w has a bolt
