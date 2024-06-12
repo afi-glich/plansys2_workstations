@@ -169,7 +169,7 @@
 )
 
 (:durative-action giveboltworkstation
-    :parameters (?r - robot ?b - box ?bo - botl ?l - location ?w - workstation)
+    :parameters (?r - robot ?b - box ?bo - bolt ?l - location ?w - workstation)
     :duration (= ?duration 4)
     :condition (and 
         (at start (and 
