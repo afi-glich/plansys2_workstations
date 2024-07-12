@@ -18,7 +18,7 @@ set instance workstation2 workstation
 set instance workstation3 workstation
 set instance load0 capacity_value
 set instance load1 capacity_value
-set instance load1 capacity_value
+set instance load2 capacity_value
 
 set predicate (connected central_warehouse l1)
 set predicate (connected l1 central_warehouse)
