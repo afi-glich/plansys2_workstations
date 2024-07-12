@@ -1,35 +1,60 @@
-set instance leia robot
-set instance cw location
-set instance room1 location
-set instance c1 carrier
-set instance v1 content
-set instance b1 box
-set instance b2 box
-set instance w1 workstation 
+set instance robby robot
+set instance central_warehouse location
+set instance l1 location
+set instance l2 location
+set instance l3 location
+set instance l4 location
+set instance k1 carrier
+set instance valve1 content
+set instance valve2 content
+set instance bolt1 content
+set instance bolt2 content
+set instance tool1 content
+set instance box1 box
+set instance box2 box
+set instance box3 box
+set instance workstation1 workstation 
+set instance workstation2 workstation
+set instance workstation3 workstation
 set instance load0 capacity_value
 set instance load1 capacity_value
 set instance load1 capacity_value
 
-set predicate (connected cw room1)
-set predicate (connected room1 cw)
+set predicate (connected central_warehouse l1)
+set predicate (connected l1 central_warehouse)
+set predicate (connected central_warehouse l2)
+set predicate (connected l2 central_warehouse)
+set predicate (connected central_warehouse l4)
+set predicate (connected l4 central_warehouse)
+set predicate (connected l1 l3)
+set predicate (connected l3 l1)
 
-set predicate (at leia cw)
-set predicate (free leia)
+set predicate (at robby central_warehouse)
+set predicate (free robby)
 
-set predicate (has_carrier c1 leia)
+set predicate (has_carrier k1 robby)
 
 set predicate (next_load load0 load1)
 set predicate (next_load load1 load2)
 
-set predicate (capacity c1 load1)
+set predicate (capacity k1 load1)
 
-set predicate (at b1 cw)
-set predicate (empty b1)
+set predicate (at box1 central_warehouse)
+set predicate (empty box1)
+set predicate (at box2 central_warehouse)
+set predicate (empty box2)
+set predicate (at box3 central_warehouse)
+set predicate (empty box3)
 
-set predicate (at b2 cw)
-set predicate (empty b2)
+set predicate (at valve1 central_warehouse)
+set predicate (at valve2 central_warehouse)
+set predicate (at bolt1 central_warehouse)
+set predicate (at bolt2 central_warehouse)
+set predicate (at tool1 central_warehouse)
 
-set predicate (at w1 room1)
-set predicate (at v1 cw)
+set predicate (at workstation1 l1)
+set predicate (at workstation2 l2)
+set predicate (at workstation3 l3)
 
-set goal (and(at leia room1))
+set goal (and (at valve1 workstation1) (at bolt1 workstation1) 
+(at valve2 workstation2) (at bolt2 workstation2) (at tool1 workstation3))
