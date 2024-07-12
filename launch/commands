@@ -56,5 +56,4 @@ set predicate (at workstation1 l1)
 set predicate (at workstation2 l2)
 set predicate (at workstation3 l3)
 
-set goal (and (has_workstation valve1 workstation1) (has_workstation bolt1 workstation1) 
-(has_workstation valve2 workstation2) (has_workstation bolt2 workstation2) (has_workstation tool1 workstation3))
+set goal (and(has_workstation valve1 workstation1)(has_workstation bolt1 workstation1)(has_workstation valve2 workstation2)(has_workstation bolt2 workstation2)(has_workstation tool1 workstation3))
